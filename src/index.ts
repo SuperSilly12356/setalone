@@ -19,15 +19,15 @@ class Card {
         const colorAttr = colorMapping[this.color - 1];
         const shapeShade = shapeShadeMapping[this.shape - 1][this.shade - 1];
         const selectedClass = selected ? "card-selected" : "card-inactive";
-        return html`
-            <button
+        return (
+            html`<button
                 style="color: ${colorAttr};"
                 class="${selectedClass}"
                 @click=${() => gameSelectCard(this)}
             >
                 ${[...Array(this.count).keys()].map(_ => shapeShade)}
-            </button>
-        `;
+            </button>`
+        );
     }
 }
 
