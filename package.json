@@ -1,0 +1,19 @@
+{
+  "name": "2023-02.setalone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lit-html": "^2.6.1",
+    "typescript": "^4.9.5",
+    "vite": "^4.1.1"
+  },
+  "devDependencies": {
+    "typescript-language-server": "^3.1.0"
+  }
+}

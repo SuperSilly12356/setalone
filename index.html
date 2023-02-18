@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<title>set demo</title>
+<style type="text/css">
+div#content {
+    user-select: none;  // disallow the user from selecting text in this div
+}
+button {
+    background: #fff;
+    font-family: monospace;
+    font-size: 40px;
+    width: 4ch;
+    height: 5ch;
+    letter-spacing: 0.1ch;
+}
+#content button.card-selected {
+    border: dashed;
+}
+#played button {
+    font-size: 25px;
+}
+#played li {
+    display: inline;
+}
+#played ul {
+    clear: both;
+}
+</style>
+</head>
+<body>
+<div id="content"></div>
+<div id="played"></div>
+<script type="module" src="/src/index.ts"></script>
+</body>
+</html>
