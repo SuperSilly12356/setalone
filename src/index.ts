@@ -54,18 +54,14 @@ function newDeck(): Card[] {
  * Fisher-Yates Shuffle
  */
 function shuffle<T>(xs: T[]): void {
-    for (let i = 0; i < xs.length - 2; i++) {
-        const j = i + Math.floor(Math.random() * (xs.length - i));
-        const temp = xs[i];
-        xs[i] = xs[j];
-        xs[j] = temp;
-    }
+    console.log("shuffle: not implemented yet");
 }
 
+/**
+ * Transfer `count` items from `src` to `dest`.
+ */
 function deal<T>(src: T[], count: Number, dest: T[]) {
-    for (let i = 0; i < count; i++) {
-        dest.push(src.pop()!);
-    }
+    console.log("deal: not implemented yet");
 }
 
 function renderTable(cards: Card[], selected: Set<Card>) {
