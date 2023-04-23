@@ -54,7 +54,17 @@ function newDeck(): Card[] {
  * Fisher-Yates Shuffle
  */
 function shuffle<T>(xs: T[]): void {
-    console.log("shuffle: not implemented yet");
+    let currentIndex = xs.length,  randomIndex;
+
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+  
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      [xs[currentIndex], xs[randomIndex]] = [
+        xs[randomIndex], xs[currentIndex]];
+    }
 }
 
 /**
@@ -95,11 +105,56 @@ function gameSelectCard(card: Card): void {
 }
 
 function isSet(cards: Set<Card>): boolean {
-    return true;
+    // mini function that checks if that an attribute is valid, i.e. all the same, or all different
+    function validAttribute(levels: Array<number>){
+        if ((levels[0] == levels[1] && levels[1] == levels[2])||(levels[0] != levels[1] && levels[0] != levels[2] && levels[1] != levels[2])){
+            return true
+        }
+        else{
+            return false
+        }
+        
+
+    }
+    let shapes : Array<number> = cards[0].shape
+    let counts : Array<number> = cards[0].count
+    let shades : Array<number> = cards[0].shade
+    let colors : Array<number> = cards[0].color
+    //checks if all 4 attributes are valid, and if they are, returns true for valid set
+    if(validAttribute(shapes) && validAttribute(counts) && validAttribute(shades) && validAttribute(colors)){
+        return true;
+    }else{
+        return false
+    }
+    
 }
 
+
 function hasValidSet(cards: Array<Card>): boolean {
-    return true;
+    // loops through every combination of 3 cards (combination, not permuation, since order doesn't matter)
+    //uses a counter in case later we want to implement a number of sets left function
+    let validSetCount = 0
+    for(let x = 0; x < cards.length - 2; x++){
+        for(let y = x + 1; y < cards.length - 1; y++){
+            for(let z = y + 1; z < cards.length; z++){
+                //creates a set variable with the 3 cards
+                let cardsToCheck = new Set<Card>()
+                cardsToCheck.add(cards[x])
+                cardsToCheck.add(cards[y])
+                cardsToCheck.add(cards[z])
+                //adds to the counter if the set is valid
+                if(isSet(cardsToCheck)){
+                    validSetCount ++
+                }
+            }    
+        }
+    }
+    if(validSetCount > 0){
+        return true
+    }
+    else{
+        return false
+    }
 }
 
 function update() {
