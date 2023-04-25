@@ -107,25 +107,14 @@ function gameSelectCard(card: Card): void {
 function isSet(cards: Set<Card>): boolean {
     // mini function that checks if that an attribute is valid, i.e. all the same, or all different
     function validAttribute(levels: Array<number>){
-        if ((levels[0] == levels[1] && levels[1] == levels[2])||(levels[0] != levels[1] && levels[0] != levels[2] && levels[1] != levels[2])){
-            return true
-        }
-        else{
-            return false
-        }
-        
-
+        return ((levels[0] == levels[1] && levels[1] == levels[2])||(levels[0] != levels[1] && levels[0] != levels[2] && levels[1] != levels[2]))
     }
     let shapes : Array<number> = cards[0].shape
     let counts : Array<number> = cards[0].count
     let shades : Array<number> = cards[0].shade
     let colors : Array<number> = cards[0].color
     //checks if all 4 attributes are valid, and if they are, returns true for valid set
-    if(validAttribute(shapes) && validAttribute(counts) && validAttribute(shades) && validAttribute(colors)){
-        return true;
-    }else{
-        return false
-    }
+    return(validAttribute(shapes) && validAttribute(counts) && validAttribute(shades) && validAttribute(colors))
     
 }
 
@@ -149,12 +138,7 @@ function hasValidSet(cards: Array<Card>): boolean {
             }    
         }
     }
-    if(validSetCount > 0){
-        return true
-    }
-    else{
-        return false
-    }
+    return (validSetCount > 0)
 }
 
 function update() {
